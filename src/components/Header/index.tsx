@@ -3,7 +3,12 @@ import styles from './header.module.css';
 import { ReactComponent as Moon } from '../../assets/moon.svg';
 import { ReactComponent as MoonFilled } from '../../assets/moon_filled.svg';
 
-export const Header = ({ toggleTheme, lightTheme }: any) => {
+interface Props {
+  lightTheme: boolean;
+  toggleTheme: () => void;
+}
+
+export const Header = ({ toggleTheme, lightTheme }: Props) => {
   const { header, title, content, button, icon } = styles;
   const moon = lightTheme
     ? <Moon className={icon} />

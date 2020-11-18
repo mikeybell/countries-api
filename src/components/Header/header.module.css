@@ -8,11 +8,12 @@
   justify-content: space-between;
   max-width: var(--desktop-width);
   padding: 24px 48px;
+  margin: 0 auto;
 }
 
 .title {
   margin: 0;
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .button {
