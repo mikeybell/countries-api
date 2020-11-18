@@ -13,7 +13,7 @@ export const App = () => {
 
   return (
     <main className={`${app} ${themeStyle}`}>
-      <Header toggleTheme={toggleTheme} />
+      <Header toggleTheme={toggleTheme} lightTheme={lightTheme} />
     </main>
   );
 }

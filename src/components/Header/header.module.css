@@ -21,4 +21,11 @@
   color: var(--theme-text);
   font-size: var(--body-text-home);
   font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 6px;
 }
