@@ -1,0 +1,4 @@
+.app {
+  background: var(--theme-background);
+  color: var(--theme-text);
+}

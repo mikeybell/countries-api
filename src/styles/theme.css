@@ -1,11 +1,16 @@
 .light {
-  --theme-color: #A80000;
-  --theme-page-background: #FFF;
-  --theme-page-text: #111;
+  --theme-element: #FFFFFF;
+  --theme-background: #FAFAFA;
+  --theme-text: #111517;
+  --theme-input: #858585;
 }
 
 .dark {
-  --theme-color: #0000A8;
-  --theme-page-background: #111;
-  --theme-page-text: #FFF;
+  --theme-element: #2B3945;
+  --theme-background: #202C37;
+  --theme-text: #FFFFFF;
+}
+
+.container {
+  --desktop-width: 1440px;
 }
