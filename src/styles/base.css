@@ -12,6 +12,7 @@ body {
 
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;
+  font-size: var(--body-text-home);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

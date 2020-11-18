@@ -15,7 +15,9 @@ export const CountryList = () => {
   return (
     <section className={container}>
       <h1>List</h1>
-
+      {countries.map(country => {
+        return <p>{country.name}</p>
+      })}
     </section>
   )
 }
