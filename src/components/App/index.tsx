@@ -5,7 +5,7 @@ import styles from './app.module.css';
 import '../../styles/theme.css';
 
 export const App = () => {
-  const { app } = styles;
+  const { app, container } = styles;
   const [lightTheme, setLightTheme] = useState(true);
 
   const toggleTheme = () => setLightTheme(!lightTheme);
@@ -15,7 +15,9 @@ export const App = () => {
   return (
     <main className={`${app} ${themeStyle}`}>
       <Header toggleTheme={toggleTheme} lightTheme={lightTheme} />
-      <CountryList />
+      <section className={container}>
+        <CountryList />
+      </section>
     </main>
   );
 }

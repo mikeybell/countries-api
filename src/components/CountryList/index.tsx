@@ -1,10 +1,11 @@
 import React from 'react';
+import { Card } from '../Card';
 import { useAllCountries } from './hooks/useAllCountries';
 import styles from "./countryList.module.css";
 
 export const CountryList = () => {
   const { countries, error } = useAllCountries();
-  const { container } = styles;
+  const { container, list, listItem } = styles;
 
   console.log({countries})
 
@@ -14,10 +15,21 @@ export const CountryList = () => {
 
   return (
     <section className={container}>
-      <h1>List</h1>
-      {countries.map(country => {
-        return <p>{country.name}</p>
-      })}
+      <ul className={list}>
+        {countries.map(country => {
+          return (
+            <li className={listItem} key={country.name}>
+              <Card
+                name={country.name}
+                population={country.population}
+                region={country.region}
+                capital={country.capital}
+                flag={country.flag}
+              />
+            </li>
+          )
+        })}
+      </ul>
     </section>
   )
 }

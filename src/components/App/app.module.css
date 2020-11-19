@@ -2,3 +2,7 @@
   background: var(--theme-background);
   color: var(--theme-text);
 }
+
+.container {
+  padding-top: 100px;
+}

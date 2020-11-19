@@ -1,0 +1,35 @@
+.container {
+  /* max-width: 300px; */
+  min-height: 375px;
+  border-radius: 3px;
+  background: var(--theme-element);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.img {
+  max-width: 100%;
+  border-radius: 3px 3px 0 0;
+}
+
+.header {
+  margin: 0 0 12px 0;
+  font-size: 2rem;
+}
+
+.info {
+  padding: 24px;
+}
+
+.item {
+  margin: 0;
+  font-weight: 600;
+  font-size: var(--body-text-home);
+}
+
+.value {
+  font-weight: 300;
+}
+
+.container p + p {
+  margin-top: 6px
+}
