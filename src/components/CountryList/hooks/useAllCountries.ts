@@ -16,7 +16,7 @@ export const useAllCountries = (): Countries => {
 
   const getAllCountries = async () => {
     try {
-      const res = await fetch('https://restcountries.eu/rest/v2/all?fields=name;population;region;capital;flag');
+      const res = await fetch('https://restcountries.eu/rest/v2/all');
       if (!res.ok) throw new Error();
       const data = await res.json();
       setCountries(data)

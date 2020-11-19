@@ -5,9 +5,7 @@ import styles from "./countryList.module.css";
 
 export const CountryList = () => {
   const { countries, error } = useAllCountries();
-  const { container, list, listItem } = styles;
-
-  console.log({countries})
+  const { container, list } = styles;
 
   if (error) {
     return <p>{error}</p>
@@ -18,7 +16,7 @@ export const CountryList = () => {
       <ul className={list}>
         {countries.map(country => {
           return (
-            <li className={listItem} key={country.name}>
+            <li key={country.name}>
               <Card
                 name={country.name}
                 population={country.population}

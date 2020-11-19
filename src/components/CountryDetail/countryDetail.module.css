@@ -1,0 +1,42 @@
+.container {
+  max-width: var(--desktop-width);
+  height: 100vh;
+  padding: 24px 48px;
+  margin: 0 auto;
+}
+
+.flagStyle {
+  max-width: 500px;
+}
+
+.img {
+  max-width: 100%;
+}
+
+.infoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.detailsContainer {
+  margin-left: 64px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.columns li + li {
+  margin-top: 6px;
+}
+
+.listItem {
+  font-weight: 600;
+}
+
+.value {
+  font-weight: 300;
+}
