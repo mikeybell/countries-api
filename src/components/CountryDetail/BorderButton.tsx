@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './borderButton.module.css';
+import styles from './styles/borderButton.module.css';
 import { Country } from '../types';
 
 interface Props {

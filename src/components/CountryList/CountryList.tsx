@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card } from '../Card';
+import { Card } from './Card';
 import { useGetAllCountries } from './hooks/useGetAllCountries';
-import styles from "./countryList.module.css";
+import styles from "./styles/countryList.module.css";
 
 export const CountryList = () => {
   const { countries, error } = useGetAllCountries();

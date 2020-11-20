@@ -2,9 +2,10 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetCountryByName } from './hooks/useGetCountryByName';
 import { useGetBorderCountries } from './hooks/useGetBorderCountries';
-import { BorderButton } from '../BorderButton';
-import { BackButton } from '../BackButton';
-import styles from "./countryDetail.module.css";
+import { BorderButton } from './BorderButton';
+import { BackButton } from './BackButton';
+import { getArrayValues } from './utils';
+import styles from "./styles/countryDetail.module.css";
 
 export const CountryDetail = () => {
   // @ts-ignore
@@ -24,18 +25,7 @@ export const CountryDetail = () => {
     listItem,
     flagStyle,
     borderButtons,
-    backButton
   } = styles;
-
-  const getArrayValues = (arr: any) => {
-    const value = arr?.map((item: {name: string}, index: number) => {
-      if (arr.length > 1 && index !== (arr.length - 1)) {
-        return ` ${item.name}, `
-      }
-      return ` ${item.name}`
-    })
-    return [...value];
-  }
 
   if (error) {
     return <p>{error}</p>
@@ -110,7 +100,7 @@ export const CountryDetail = () => {
               <p className={listItem}>Border Countries:</p>
               <div className={borderButtons}>
                 {borderCountries?.map(country => {
-                  return <BorderButton country={country} />
+                  return <BorderButton key={country.alpha3Code} country={country} />
                 })}
               </div>
             </div>

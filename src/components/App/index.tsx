@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { Header } from '../Header';
 import { CountryList } from '../CountryList';
@@ -6,25 +6,29 @@ import { CountryDetail } from '../CountryDetail';
 import styles from './app.module.css';
 import '../../styles/theme.css';
 
+export const ThemeContext = createContext("");
+
 export const App = () => {
   const { app, container } = styles;
-  const [lightTheme, setLightTheme] = useState(true);
+  const [theme, setTheme] = useState('light');
 
-  const toggleTheme = () => setLightTheme(!lightTheme);
-
-  const themeStyle = lightTheme ? 'light' : 'dark';
+  const toggleTheme = () => {
+    theme === "dark" ? setTheme("light") : setTheme("dark")
+  };
 
   return (
     <Router>
-      <main className={`${app} ${themeStyle}`}>
-        <Header toggleTheme={toggleTheme} lightTheme={lightTheme} />
-        <section className={container}>
-          <Switch>
-            <Route exact path="/" component={CountryList} />
-            <Route exact path="/:slug" component={CountryDetail} />
-          </Switch>
-        </section>
-      </main>
+      <ThemeContext.Provider value={theme}>
+        <main className={`${app} ${theme}`}>
+          <Header toggleTheme={toggleTheme} />
+          <section className={container}>
+            <Switch>
+              <Route exact path="/" component={CountryList} />
+              <Route exact path="/:slug" component={CountryDetail} />
+            </Switch>
+          </section>
+        </main>
+      </ThemeContext.Provider>
     </Router>
   );
 }
