@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card } from '../Card';
-import { useAllCountries } from './hooks/useAllCountries';
+import { useGetAllCountries } from './hooks/useGetAllCountries';
 import styles from "./countryList.module.css";
 
 export const CountryList = () => {
-  const { countries, error } = useAllCountries();
+  const { countries, error } = useGetAllCountries();
   const { container, list } = styles;
 
   if (error) {

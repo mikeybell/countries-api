@@ -1,12 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useCountry } from './hooks/useCountry';
+import { useGetCountryByName } from './hooks/useGetCountryByName';
+import { useGetBorderCountries } from './hooks/useGetBorderCountries';
+import { BorderButton } from '../BorderButton';
+import { BackButton } from '../BackButton';
 import styles from "./countryDetail.module.css";
 
 export const CountryDetail = () => {
   // @ts-ignore
   const { slug } = useParams();
-  const { country, error } = useCountry(slug);
+  const { country, error } = useGetCountryByName(slug);
+  const { borderCountries } = useGetBorderCountries(country);
+
   const {
     container,
     infoContainer,
@@ -14,10 +19,12 @@ export const CountryDetail = () => {
     img,
     header,
     columns,
-    borderCountries,
+    borderCountriesStyle,
     value,
     listItem,
-    flagStyle
+    flagStyle,
+    borderButtons,
+    backButton
   } = styles;
 
   const getArrayValues = (arr: any) => {
@@ -34,25 +41,23 @@ export const CountryDetail = () => {
     return <p>{error}</p>
   }
 
-  console.log(country)
-
   if (country) {
     const {
-    borders,
-    capital,
-    currencies,
-    flag,
-    languages,
-    name,
-    nativeName,
-    population,
-    region,
-    subregion,
-    topLevelDomain,
-  } = country;
+      capital,
+      currencies,
+      flag,
+      languages,
+      name,
+      nativeName,
+      population,
+      region,
+      subregion,
+      topLevelDomain,
+    } = country;
 
     return (
       <section className={container}>
+        <BackButton />
         <div className={infoContainer}>
           <div className={flagStyle}>
             <img className={img} src={flag} alt={`The flag of ${name}`} />
@@ -67,7 +72,7 @@ export const CountryDetail = () => {
                 </li>
                 <li className={listItem}>
                   Population:
-                  <span className={value}> {population}</span>
+                  <span className={value}> {population.toLocaleString('en')}</span>
                 </li>
                 <li className={listItem}>
                   Region:
@@ -101,7 +106,14 @@ export const CountryDetail = () => {
                 </li>
               </ul>
             </div>
-            <div className={borderCountries}></div>
+            <div className={borderCountriesStyle}>
+              <p className={listItem}>Border Countries:</p>
+              <div className={borderButtons}>
+                {borderCountries?.map(country => {
+                  return <BorderButton country={country} />
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </section>

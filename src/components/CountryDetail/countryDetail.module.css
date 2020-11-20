@@ -6,7 +6,7 @@
 }
 
 .flagStyle {
-  max-width: 500px;
+  width: 50%;
 }
 
 .img {
@@ -15,13 +15,16 @@
 
 .infoContainer {
   display: flex;
-  align-items: center;
 }
 
 .detailsContainer {
+  width: calc(50% - 64px);
   margin-left: 64px;
-  width: 100%;
-  max-width: 400px;
+}
+
+.header {
+  margin: 0 0 24px 0;
+  font-size: 2.4rem;
 }
 
 .columns {
@@ -33,10 +36,28 @@
   margin-top: 6px;
 }
 
+.columns ul:last-child {
+  margin-left: 64px;
+}
+
 .listItem {
+  font-size: var(--body-text-detail);
   font-weight: 600;
+  margin: 0;
 }
 
 .value {
   font-weight: 300;
+}
+
+.borderCountriesStyle {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+.borderButtons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 12px;
 }

@@ -6,7 +6,7 @@ interface CountryResult {
   country?: Country;
 }
 
-export const useCountry = (slug: string): CountryResult => {
+export const useGetCountryByName = (slug: string): CountryResult => {
   const [country, setCountry] = useState();
   const [error, setError] = useState("");
   const countryName = slug.replaceAll('-', ' ');

@@ -6,7 +6,7 @@ interface Countries {
   countries: Country[];
 }
 
-export const useAllCountries = (): Countries => {
+export const useGetAllCountries = (): Countries => {
   const [countries, setCountries] = useState([]);
   const [error, setError] = useState("");
 
