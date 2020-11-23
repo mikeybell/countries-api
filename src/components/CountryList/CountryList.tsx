@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from './Card';
+import { Loader } from '../Loader';
 import { useGetAllCountries } from './hooks/useGetAllCountries';
 import styles from "./styles/countryList.module.css";
 
@@ -9,6 +10,10 @@ export const CountryList = () => {
 
   if (error) {
     return <p>{error}</p>
+  }
+
+  if (countries.length === 0) {
+    return <Loader />
   }
 
   return (

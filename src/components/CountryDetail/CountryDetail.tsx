@@ -4,6 +4,7 @@ import { useGetCountryByName } from './hooks/useGetCountryByName';
 import { useGetBorderCountries } from './hooks/useGetBorderCountries';
 import { BorderButton } from './BorderButton';
 import { BackButton } from './BackButton';
+import { Loader } from '../Loader';
 import { getArrayValues } from './utils';
 import styles from "./styles/countryDetail.module.css";
 
@@ -110,5 +111,5 @@ export const CountryDetail = () => {
     )
   }
 
-  return <p>Loading...</p>;
+  return <Loader />;
 }
