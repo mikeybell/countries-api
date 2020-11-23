@@ -7,8 +7,8 @@ interface CountryResult {
 }
 
 export const useGetCountryByName = (slug: string): CountryResult => {
-  const [country, setCountry] = useState();
-  const [error, setError] = useState("");
+  const [country, setCountry] = useState<Country>();
+  const [error, setError] = useState<string>("");
   const countryName = slug.replaceAll('-', ' ');
 
   const getCountry= useCallback(async () => {

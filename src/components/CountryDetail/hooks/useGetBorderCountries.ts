@@ -8,7 +8,7 @@ interface CountryResult {
 
 export const useGetBorderCountries = (country: Country | undefined): CountryResult => {
   const [borderCountries, setBorderCountries] = useState<Country[]>([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>("");
 
   const getCountry= useCallback(async (countryCode) => {
     try {

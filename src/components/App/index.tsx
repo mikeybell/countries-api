@@ -10,9 +10,9 @@ export const ThemeContext = createContext("");
 
 export const App = () => {
   const { app, container } = styles;
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState<string>('light');
 
-  const toggleTheme = () => {
+  const toggleTheme = (): void => {
     theme === "dark" ? setTheme("light") : setTheme("dark")
   };
 

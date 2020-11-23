@@ -7,8 +7,8 @@ interface Countries {
 }
 
 export const useGetAllCountries = (): Countries => {
-  const [countries, setCountries] = useState([]);
-  const [error, setError] = useState("");
+  const [countries, setCountries] = useState<[]>([]);
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     getAllCountries();
