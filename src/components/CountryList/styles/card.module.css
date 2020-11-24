@@ -1,5 +1,4 @@
 .container {
-  /* max-width: 300px; */
   min-height: 375px;
   border-radius: 3px;
   background: var(--theme-element);
