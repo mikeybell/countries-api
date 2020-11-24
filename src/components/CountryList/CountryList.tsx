@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ChangeEvent } from 'react';
 import { Card } from './Card';
 import { Loader } from '../Loader';
 import { useGetAllCountries } from './hooks/useGetAllCountries';
 import { useFilterRegion } from '../Controls/hooks/useFilterRegion';
+import { SearchInput } from '../Controls/SearchInput';
 import { Country } from '../types';
 import styles from "./styles/countryList.module.css";
 
 export const CountryList = () => {
   const [ countriesList, setCountriesList ] = useState<Country[]>([]);
+  const [search, setSearch] = useState<string>('');
+
   const { countries, error } = useGetAllCountries();
-  const { region, FilterRegion } = useFilterRegion();
+  const { FilterRegion } = useFilterRegion({ countries, setCountriesList });
+
   const { container, list } = styles;
 
   useEffect(() => {
@@ -17,13 +21,20 @@ export const CountryList = () => {
   }, [countries]);
 
   useEffect(() => {
-    const filteredCountries = countries.filter(country => {
-      if (region === 'All') return true;
-      return country.region === region;
-    });
-    setCountriesList(filteredCountries);
+    if (search !== '') {
+      const result = countries.filter(country => {
+        return country.name.toLowerCase().includes(search.toLocaleLowerCase());
+      });
+      setCountriesList(result);
+    };
+
+    if (search === '') setCountriesList(countries);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [region]);
+  }, [search]);
+
+  const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value)
+  };
 
   if (error) {
     return <p>{error}</p>
@@ -35,6 +46,7 @@ export const CountryList = () => {
 
   return (
     <section className={container}>
+      <SearchInput onChange={handleSearchInput} />
       <FilterRegion />
       <ul className={list}>
         {countriesList.map(country => {
