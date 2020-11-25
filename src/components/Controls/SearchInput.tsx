@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import styles from './styles/searchInput.module.css';
 
 interface Props {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -6,10 +7,13 @@ interface Props {
 
 export const SearchInput = ({ onChange }: Props) => {
   return (
-    <input
-      type="text"
-      placeholder="Search"
-      onChange={onChange}
-    />
+    <div className={styles.container}>
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="Search"
+        onChange={onChange}
+      />
+    </div>
   )
 }

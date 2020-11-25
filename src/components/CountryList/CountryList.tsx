@@ -14,7 +14,7 @@ export const CountryList = () => {
   const { countries, error } = useGetAllCountries();
   const { FilterRegion } = useFilterRegion({ countries, setCountriesList });
 
-  const { container, list } = styles;
+  const { container, list, controls } = styles;
 
   useEffect(() => {
     if (countries) setCountriesList(countries);
@@ -46,8 +46,10 @@ export const CountryList = () => {
 
   return (
     <section className={container}>
-      <SearchInput onChange={handleSearchInput} />
-      <FilterRegion />
+      <div className={controls}>
+        <SearchInput onChange={handleSearchInput} />
+        <FilterRegion />
+      </div>
       <ul className={list}>
         {countriesList.map(country => {
           return (
