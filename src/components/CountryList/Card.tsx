@@ -16,7 +16,7 @@ export const Card = ({
 
   return (
     <Link to={slug}>
-      <div className={container}>
+      <article className={container}>
         <img className={img} src={flag} alt={`The flag of ${name}`} />
         <div className={info}>
           <h2 className={header}>{name}</h2>
@@ -33,7 +33,7 @@ export const Card = ({
             <span className={value}> {capital}</span>
           </p>
         </div>
-      </div>
+      </article>
     </Link>
   )
 }

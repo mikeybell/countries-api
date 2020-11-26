@@ -1,13 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Country } from '../../types';
+import { EMPTY_COUNTRY } from '../../constants';
 
 interface CountryResult {
   error: string;
-  country?: Country;
+  country: Country;
 }
 
 export const useGetCountryByName = (slug: string): CountryResult => {
-  const [country, setCountry] = useState<Country>();
+  const [country, setCountry] = useState<Country>(EMPTY_COUNTRY);
   const [error, setError] = useState<string>("");
   const countryName = slug.replaceAll('-', ' ');
 

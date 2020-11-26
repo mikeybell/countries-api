@@ -47,9 +47,9 @@ export const CountryDetail = () => {
     } = country;
 
     return (
-      <section className={container}>
+      <div className={container}>
         <BackButton />
-        <div className={infoContainer}>
+        <article className={infoContainer}>
           <div className={flagStyle}>
             <img className={img} src={flag} alt={`The flag of ${name}`} />
           </div>
@@ -98,16 +98,24 @@ export const CountryDetail = () => {
               </ul>
             </div>
             <div className={borderCountriesStyle}>
-              <p className={listItem}>Border Countries:</p>
-              <div className={borderButtons}>
-                {borderCountries?.map(country => {
-                  return <BorderButton key={country.alpha3Code} country={country} />
-                })}
-              </div>
+              <p className={listItem}>
+                Border Countries:
+                {borderCountries.length === 0 && (
+                  <span className={value}> None</span>
+                )}
+              </p>
+
+              {borderCountries.length > 0 && (
+                <div className={borderButtons}>
+                  {borderCountries.map(country => {
+                    return <BorderButton key={country.alpha3Code} country={country} />
+                  })}
+                </div>
+              )}
             </div>
           </div>
-        </div>
-      </section>
+        </article>
+      </div>
     )
   }
 

@@ -3,10 +3,10 @@ import { Country } from '../../types';
 
 interface CountryResult {
   error: string;
-  borderCountries?: Country[];
+  borderCountries: Country[];
 }
 
-export const useGetBorderCountries = (country: Country | undefined): CountryResult => {
+export const useGetBorderCountries = (country: Country): CountryResult => {
   const [borderCountries, setBorderCountries] = useState<Country[]>([]);
   const [error, setError] = useState<string>("");
 

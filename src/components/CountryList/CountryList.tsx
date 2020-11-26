@@ -45,11 +45,11 @@ export const CountryList = () => {
   }
 
   return (
-    <section className={container}>
-      <div className={controls}>
+    <div className={container}>
+      <section className={controls}>
         <SearchInput onChange={handleSearchInput} />
         <FilterRegion />
-      </div>
+      </section>
       <ul className={list}>
         {countriesList.map(country => {
           return (
@@ -65,6 +65,6 @@ export const CountryList = () => {
           )
         })}
       </ul>
-    </section>
+    </div>
   )
 }
