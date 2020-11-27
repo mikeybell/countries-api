@@ -1,6 +1,5 @@
 .container {
   max-width: var(--desktop-width);
-  min-height: 100vh;
   padding: 24px 48px;
   margin: 0 auto;
 }
