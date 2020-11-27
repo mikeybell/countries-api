@@ -45,7 +45,7 @@ export const useFilterRegion = ({ countries, setCountriesList }: Props) => {
     return (
       <div className={container}>
         <button className={toggleButton} onClick={toggleMenu}>
-          Filter by Region
+          {region === 'All' ? 'Filter by Region' : region}
           <DownArrow color={iconColor} />
         </button>
         {showMenu && (
@@ -66,5 +66,5 @@ export const useFilterRegion = ({ countries, setCountriesList }: Props) => {
     )
   };
 
-  return { region, FilterRegion };
+  return { FilterRegion };
 }

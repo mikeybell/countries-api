@@ -44,3 +44,18 @@
 .regionButton:hover {
   background-color: var(--theme-background);
 }
+
+@media all and (max-width: 500px) {
+  .container {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .toggleButton {
+    width: 100%;
+  }
+
+  .buttonGroup {
+    width: 100%;
+  }
+}

@@ -12,3 +12,10 @@
   font-size: var(--body-text-home);
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
+
+@media all and (max-width: 500px) {
+  .container {
+    width: 100%;
+    display: flex;
+  }
+}
