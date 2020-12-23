@@ -1,11 +1,11 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useGetCountryByName } from './hooks/useGetCountryByName';
-import { useGetBorderCountries } from './hooks/useGetBorderCountries';
-import { BorderCountries } from './BorderCountries';
-import { BackButton } from './BackButton';
-import { Loader } from '../Loader';
-import { getArrayValues } from './utils';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useGetCountryByName } from "./hooks/useGetCountryByName";
+import { useGetBorderCountries } from "./hooks/useGetBorderCountries";
+import { BorderCountries } from "./BorderCountries";
+import { BackButton } from "./BackButton";
+import { Loader } from "../Loader";
+import { getArrayValues } from "./utils";
 import styles from "./styles/countryDetail.module.css";
 
 export const CountryDetail = () => {
@@ -60,7 +60,10 @@ export const CountryDetail = () => {
               </li>
               <li className={listItem}>
                 Population:
-                <span className={value}> {population.toLocaleString('en')}</span>
+                <span className={value}>
+                  {" "}
+                  {population.toLocaleString("en")}
+                </span>
               </li>
               <li className={listItem}>
                 Region:
@@ -82,15 +85,11 @@ export const CountryDetail = () => {
               </li>
               <li className={listItem}>
                 Currencies:
-                <span className={value}>
-                  {getArrayValues(currencies)}
-                </span>
+                <span className={value}>{getArrayValues(currencies)}</span>
               </li>
               <li className={listItem}>
                 Languages:
-                <span className={value}>
-                  {getArrayValues(languages)}
-                </span>
+                <span className={value}>{getArrayValues(languages)}</span>
               </li>
             </ul>
           </div>
@@ -100,5 +99,5 @@ export const CountryDetail = () => {
         </div>
       </article>
     </div>
-  )
-}
+  );
+};

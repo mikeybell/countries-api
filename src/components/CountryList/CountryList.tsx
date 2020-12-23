@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Card } from './Card';
-import { Loader } from '../Loader';
-import { useGetAllCountries } from './hooks/useGetAllCountries';
-import { useFilterRegion } from '../Controls/hooks/useFilterRegion';
-import { useSearchInput } from '../Controls/hooks/useSearchInput';
-import { SearchInput } from '../Controls/SearchInput';
-import { Country } from '../types';
+import React, { useEffect, useState } from "react";
+import { Card } from "./Card";
+import { Loader } from "../Loader";
+import { useGetAllCountries } from "./hooks/useGetAllCountries";
+import { useFilterRegion } from "../Controls/hooks/useFilterRegion";
+import { useSearchInput } from "../Controls/hooks/useSearchInput";
+import { SearchInput } from "../Controls/SearchInput";
+import { Country } from "../types";
 import styles from "./styles/countryList.module.css";
 
 export const CountryList = () => {
@@ -31,7 +31,7 @@ export const CountryList = () => {
         <FilterRegion />
       </section>
       <ul className={list}>
-        {countriesList.map(country => {
+        {countriesList.map((country) => {
           return (
             <li key={country.name}>
               <Card
@@ -42,9 +42,9 @@ export const CountryList = () => {
                 flag={country.flag}
               />
             </li>
-          )
+          );
         })}
       </ul>
     </div>
-  )
-}
+  );
+};

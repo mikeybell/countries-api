@@ -1,19 +1,19 @@
-import React, { useState, createContext } from 'react';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import { Header } from '../Header';
-import { CountryList } from '../CountryList';
-import { CountryDetail } from '../CountryDetail';
-import styles from './app.module.css';
-import '../../styles/theme.css';
+import React, { useState, createContext } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Header } from "../Header";
+import { CountryList } from "../CountryList";
+import { CountryDetail } from "../CountryDetail";
+import styles from "./app.module.css";
+import "../../styles/theme.css";
 
 export const ThemeContext = createContext("");
 
 export const App = () => {
   const { app, container } = styles;
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setTheme] = useState<string>("light");
 
   const toggleTheme = (): void => {
-    theme === "dark" ? setTheme("light") : setTheme("dark")
+    theme === "dark" ? setTheme("light") : setTheme("dark");
   };
 
   return (
@@ -31,4 +31,4 @@ export const App = () => {
       </ThemeContext.Provider>
     </Router>
   );
-}
+};

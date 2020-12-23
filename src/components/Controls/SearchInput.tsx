@@ -1,5 +1,5 @@
-import React, { ChangeEvent } from 'react';
-import styles from './styles/searchInput.module.css';
+import React, { ChangeEvent } from "react";
+import styles from "./styles/searchInput.module.css";
 
 interface Props {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -15,5 +15,5 @@ export const SearchInput = ({ onChange }: Props) => {
         onChange={onChange}
       />
     </div>
-  )
-}
+  );
+};

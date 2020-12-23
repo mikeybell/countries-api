@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Country } from '../../types';
+import { useState, useEffect } from "react";
+import { Country } from "../../types";
 
 interface Countries {
   error: string;
@@ -16,14 +16,14 @@ export const useGetAllCountries = (): Countries => {
 
   const getAllCountries = async () => {
     try {
-      const res = await fetch('https://restcountries.eu/rest/v2/all');
+      const res = await fetch("https://restcountries.eu/rest/v2/all");
       if (!res.ok) throw new Error();
       const data = await res.json();
-      setCountries(data)
+      setCountries(data);
     } catch (err) {
       setError(err.message);
     }
-  }
+  };
 
   return { countries, error };
-}
+};

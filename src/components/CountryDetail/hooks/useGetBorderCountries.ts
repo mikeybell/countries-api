@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { Country } from '../../types';
+import { useState, useEffect, useCallback } from "react";
+import { Country } from "../../types";
 
 interface CountryResult {
   error: string;
@@ -10,21 +10,23 @@ export const useGetBorderCountries = (country: Country): CountryResult => {
   const [borderCountries, setBorderCountries] = useState<Country[]>([]);
   const [error, setError] = useState<string>("");
 
-  const getCountry= useCallback(async (countryCode) => {
+  const getCountry = useCallback(async (countryCode) => {
     try {
-      const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode}`);
+      const res = await fetch(
+        `https://restcountries.eu/rest/v2/alpha/${countryCode}`
+      );
       if (!res.ok) throw new Error();
       const data = await res.json();
-      setBorderCountries(borderCountries => [...borderCountries, data]);
+      setBorderCountries((borderCountries) => [...borderCountries, data]);
       return data;
     } catch (err) {
       setError(err.message);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (country && country.borders) {
-      country.borders.map(countryCode => {
+      country.borders.map((countryCode) => {
         return getCountry(countryCode);
       });
     }
@@ -33,4 +35,4 @@ export const useGetBorderCountries = (country: Country): CountryResult => {
   }, [country, getCountry]);
 
   return { borderCountries, error };
-}
+};

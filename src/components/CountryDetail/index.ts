@@ -1,1 +1,1 @@
-export { CountryDetail } from './CountryDetail';
+export { CountryDetail } from "./CountryDetail";

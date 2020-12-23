@@ -1,31 +1,29 @@
-import React from 'react';
-import { BorderButton } from './BorderButton';
+import React from "react";
+import { BorderButton } from "./BorderButton";
 import styles from "./styles/countryDetail.module.css";
-import { Country } from '../types';
+import { Country } from "../types";
 
 interface Props {
   borderCountries: Country[];
 }
 
 export const BorderCountries = ({ borderCountries }: Props) => {
- const { listItem, value, borderButtons } = styles;
+  const { listItem, value, borderButtons } = styles;
 
   return (
     <>
       <p className={listItem}>
         Border Countries:
-        {borderCountries.length === 0 && (
-          <span className={value}> None</span>
-        )}
+        {borderCountries.length === 0 && <span className={value}> None</span>}
       </p>
 
       {borderCountries.length > 0 && (
         <div className={borderButtons}>
           {borderCountries.map((country: Country) => {
-            return <BorderButton key={country.numericCode} country={country} />
+            return <BorderButton key={country.numericCode} country={country} />;
           })}
         </div>
       )}
     </>
-  )
-}
+  );
+};

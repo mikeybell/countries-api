@@ -1,18 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import styles from './styles/card.module.css';
-import { Country } from '../types';
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "./styles/card.module.css";
+import { Country } from "../types";
 
-export const Card = ({
-  name,
-  population,
-  region,
-  capital,
-  flag
-}: Country) => {
+export const Card = ({ name, population, region, capital, flag }: Country) => {
   const { container, img, header, info, item, value } = styles;
-  const formattedPop = population.toLocaleString('en');
-  const slug = name.replaceAll(' ', '-');
+  const formattedPop = population.toLocaleString("en");
+  const slug = name.replaceAll(" ", "-");
 
   return (
     <Link to={slug}>
@@ -35,5 +29,5 @@ export const Card = ({
         </div>
       </article>
     </Link>
-  )
-}
+  );
+};

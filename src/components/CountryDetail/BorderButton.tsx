@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './styles/borderButton.module.css';
-import { Country } from '../types';
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "./styles/borderButton.module.css";
+import { Country } from "../types";
 
 interface Props {
   country: Country;
-};
+}
 
 export const BorderButton = ({ country }: Props) => {
   const { button } = styles;
@@ -15,5 +15,5 @@ export const BorderButton = ({ country }: Props) => {
     <Link className={button} to={slug}>
       {country.name}
     </Link>
-  )
-}
+  );
+};
